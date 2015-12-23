@@ -25,16 +25,19 @@ class MCP9808
 {
  public:
 
-  // Create PCA9685 object and link it with specified I2C address.
+  // Create MCP9808 object and link it with specified I2C address.
   MCP9808(uint8_t _i2c_addr);
 
-
+  // Initialize MCP9808 and check it presence.
   bool initialize();  
 
+  // Read temperature from sensor.
   float read_temp_C() const;
 
+  // Put sensor in low consumtion mode
   void shutdown();
 
+  // Return sensor from low consumption to normal mode.
   void wakeup();
 
  protected:
