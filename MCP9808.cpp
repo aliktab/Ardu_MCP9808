@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014 Alik <aliktab@gmail.com> 
+  Copyright (C) 2014 Alik <aliktab@gmail.com> All rights reserved.
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Lesser General Public
@@ -56,12 +56,12 @@ MCP9808::MCP9808(uint8_t _i2c_addr)
   m_i2c_addr = MCP9808_ADDRESS | (_i2c_addr & MCP9808_ADDRMASK);
 }
 
-bool MCP9808::initialize() 
+bool MCP9808::initialize()
 {
-  if (read_16(MCP9808_REG_MANUF_ID)  != 0x0054) 
+  if (read_16(MCP9808_REG_MANUF_ID)  != 0x0054)
     return false;
 
-  if (read_16(MCP9808_REG_DEVICE_ID) != 0x0400) 
+  if (read_16(MCP9808_REG_DEVICE_ID) != 0x0400)
     return false;
 
   return true;
@@ -85,14 +85,14 @@ float MCP9808::read_temp_C() const
 
 }
 
-void MCP9808::shutdown() 
+void MCP9808::shutdown()
 {
   uint16_t conf_reg = read_16(MCP9808_REG_CONFIG);
   conf_reg |= MCP9808_REG_CONFIG_SHUTDOWN;
   write_16(MCP9808_REG_CONFIG, conf_reg);
 }
 
-void MCP9808::wakeup() 
+void MCP9808::wakeup()
 {
   uint16_t conf_reg = read_16(MCP9808_REG_CONFIG);
   conf_reg ^= MCP9808_REG_CONFIG_SHUTDOWN;
@@ -108,7 +108,7 @@ uint16_t MCP9808::read_16(uint8_t _reg) const
   return (Data[0] << 8) | Data[1];
 }
 
-void MCP9808::write_16(uint8_t _reg, uint16_t _val) 
+void MCP9808::write_16(uint8_t _reg, uint16_t _val)
 {
   uint8_t Data[2] =
   {

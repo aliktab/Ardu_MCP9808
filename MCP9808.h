@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2014 Alik <aliktab@gmail.com> 
+  Copyright (C) 2014 Alik <aliktab@gmail.com> All rights reserved.
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Lesser General Public
@@ -21,7 +21,7 @@
 #include <inttypes.h>
 #include <limits.h>
 
-class MCP9808 
+class MCP9808
 {
  public:
 
@@ -29,7 +29,7 @@ class MCP9808
   MCP9808(uint8_t _i2c_addr);
 
   // Initialize MCP9808 and check it presence.
-  bool initialize();  
+  bool initialize();
 
   // Read temperature from sensor.
   float read_temp_C() const;
